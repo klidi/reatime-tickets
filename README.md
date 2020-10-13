@@ -58,7 +58,7 @@ moving some calculation logic inside the collection class where it belongs. This
 - acl package: https://github.com/kodeine/laravel-acl
 - laravel scaffolding: https://labs.infyom.com/laravelgenerator/
 
-composer install
+- composer install
 - npm install
 - php artisan migrate
 - php artisan db:seed --Class (i have provided some seeding for user/admin, permissions, roles)
