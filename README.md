@@ -40,34 +40,26 @@ update its items according to the action performed
 
 ## TO DO / IMPROVEMENTS
 
-I have done only one development cycle due to time constraints and i did not have time to refactor or add tests
-
-The tickets service and controllers needs some refactoring. Tickets Service is doing business logic which belongs to the domain mode
-
-Clearances are stored as array but they need their own type (ClearanceCollection), not only for type hinting but also for easier testing and 
+- I have done only one development cycle due to time constraints and i did not have time to refactor or add tests
+- The tickets service and controllers needs some refactoring. Tickets Service is doing business logic which belongs to the domain mode
+- Clearances are stored as array but they need their own type (ClearanceCollection), not only for type hinting but also for easier testing and 
 moving some calculation logic inside the collection class where it belongs. This will also help with pagination.
-
-Implement Clearance pagination and realtime search, in very large items (above 15k combos) the ui and socket becomes bloated due to the size of data
-
-lock/mutex might need to be implemented on resources (redis and db) to prevent racing conditions
-
-indexing tables when we have more use cases , cant decide indexes just based on cardinality
-
-Acl can be more granular
-
-Memory footprint test
-
-Coroutine implementation.
+- Implement Clearance pagination and realtime search, in very large items (above 15k combos) the ui and socket becomes bloated due to the size of data
+- Lock/mutex might need to be implemented on resources (redis and db) to prevent racing conditions
+- Indexing tables when we have more use cases , cant decide indexes just based on cardinality
+- Acl can be more granular
+- Memory footprint test
+- Coroutine implementation.
 
 
 ## How to set up and run
 
-how to setup swoole and run the server: https://github.com/swooletw/laravel-swoole
-acl package: https://github.com/kodeine/laravel-acl
-laravel scaffolding: https://labs.infyom.com/laravelgenerator/
+- how to setup swoole and run the server: https://github.com/swooletw/laravel-swoole
+- acl package: https://github.com/kodeine/laravel-acl
+- laravel scaffolding: https://labs.infyom.com/laravelgenerator/
 
 composer install
-npm install
-php artisan migrate
-php artisan db:seed --Class (i have provided some seeding for user/admin, permissions, roles)
-php artisan swoole:http start
+- npm install
+- php artisan migrate
+- php artisan db:seed --Class (i have provided some seeding for user/admin, permissions, roles)
+- php artisan swoole:http start
