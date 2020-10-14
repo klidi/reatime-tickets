@@ -45,8 +45,8 @@ Some modest alert will pop everytime an event comes from socket
 ## TO DO / IMPROVEMENTS
 
 - I have done only one development cycle due to time constraints and i did not have time to refactor or add tests
-- The tickets service and controllers needs some refactoring. Tickets Service is doing business logic which belongs to the domain mode
-- Clearances are stored as array but they need their own type (ClearanceCollection), not only for type hinting but also for easier testing and 
+- The tickets service and controllers needs some refactoring. Tickets Service is doing business logic which belongs to the domain model
+- Clearances are stored as array but they need their own type (Clearance, ClearanceCollection), not only for type hinting but also for easier testing and 
 moving some calculation logic inside the collection class where it belongs. This will also help with pagination.
 - Implement Clearance pagination and realtime search, in very large items (above 15k combos) the ui and socket becomes bloated due to the size of data
 - Lock/mutex might need to be implemented on resources (redis and db) to prevent racing conditions
