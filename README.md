@@ -23,20 +23,24 @@ I am just summing the next clearance with the sums that are calculated before it
 Lets say i have [10, 15, 10] and sums [10, 15, 25] after iterating the first 2 items
 next i have element 3rd item which is 10. I dont grab [10, 15, 10] and find out all combos but i sum directly with [10, 15, 25] and so on and so fourth.
 
-Now one interesting part this is that i also save the sum and array index (prevents duplicates) and the first combo(ticket ids) that produces this sum
+Now one interesting part in this is that i also save the sum as array index (prevents duplicates) and the first combo(ticket ids) that produces this sum
 as its value example: $clearances[25] => [1,2]  1,2 is the ticket ids and 25 is their sum. The clearance combos are stored in redis
 This makes it easier for me to when i want to reserve a clearance level, basically  i just get the clearances from redis and grab/access the tickets ids by 
 the clearance value that the user clicked. $ticketsIds = $clearances[25]. 25 is the value that the user clicked and was emited from
 ui to webserver.
 
-The code run fine locally on my macbook on very limited resources with up to 16773 
+When new tickets are added the combos only for that ticket are calculated and added to the previously stored combos in redis
+
+The code runs fine locally on my macbook on very limited resources with up to 16773 combos
 
 ## Some features
-The reserve is done through the socket connection both ways. User clicks -> backend reserves and responds with the recalculated values ->
+The reserve action is done through the socket connection both ways. User clicks -> backend reserves and responds with the recalculated values ->
 ui reflects this in the grid/table. this event is also broadcasted to all connected users so their grids are also updated in real time
 
-If an admin creates a new ticket or deletes a ticket , the change will be broadcasted to all connected users and grid will update
-update its items according to the action performed
+If an admin creates a new ticket or deletes a ticket , the change will be broadcasted to all connected users and grid will
+update its items according to the action performed.
+
+Some modest alert will pop everytime an event comes from socket
 
 ## TO DO / IMPROVEMENTS
 
