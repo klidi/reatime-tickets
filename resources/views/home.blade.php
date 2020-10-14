@@ -18,10 +18,7 @@
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 <script type="text/javascript">
-    var clearances = {{ json_encode($clearances) }}
-    console.log(clearances);
     var socket = io.connect('ws://127.0.0.1:1215', {transports: ['websocket']});
-    var flash = document.getElementsByClassName('alert');
 
     socket.on("connected", function(data) {
         console.log('connected');
@@ -67,7 +64,6 @@
 
     function deleteTableRows(tableBody)
     {
-        console.log(tableBody);
         tableBody.innerHTML = '';
     }
 
